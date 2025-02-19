@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useTasks } from "../context/TaskContext";
 import { RxCross1 } from "react-icons/rx";
 import { usePopup } from "../context/PopupContext";
+import { BASE_URL } from "../config";
 
 const CreateNewPopup = ({ onClose }) => {
   const [title, setTitle] = useState("");
@@ -32,14 +33,14 @@ const CreateNewPopup = ({ onClose }) => {
 
     try {
       if (taskToEdit && taskToEdit._id) {
-        await fetch(`/api/tasks/${taskToEdit._id}`, {
+        await fetch(`${BASE_URL}/api/tasks/${taskToEdit._id}`, {
           method: "PUT",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify(taskData),
         });
         setTaskToEdit(null);
       } else {
-        await fetch(`/api/tasks`, {
+        await fetch(`${BASE_URL}/api/tasks`, {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify(taskData),

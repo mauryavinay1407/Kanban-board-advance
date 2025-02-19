@@ -1,6 +1,7 @@
 import React from "react";
 import { useTasks } from "../context/TaskContext";
 import Task from "./Task";
+import { BASE_URL } from "../config";
 
 const TaskBox = ({ status }) => {
   const { tasks, fetchTasks} = useTasks();
@@ -11,7 +12,7 @@ const TaskBox = ({ status }) => {
     const taskId = e.dataTransfer.getData("taskId");
 
     try {
-      await fetch(`/api/tasks/move/${taskId}`, {
+      await fetch(`${BASE_URL}/api/tasks/move/${taskId}`, {
         method: "PUT",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ toColumn: status }),

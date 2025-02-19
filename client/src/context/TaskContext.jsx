@@ -1,5 +1,5 @@
 import { createContext, useContext, useState, useEffect } from "react";
-
+import { BASE_URL } from "../config";
 // create context
 const TaskContext = createContext();
 
@@ -13,7 +13,7 @@ export const TaskProvider = ({ children }) => {
 
   const fetchTasks = async(filter = "")=>{
       try {
-        const url = filter.trim() ? `/api/tasks?filter=${encodeURIComponent(filter)}` : `/api/tasks`;
+        const url = filter.trim() ? `${BASE_URL}/api/tasks?filter=${encodeURIComponent(filter)}` : `${BASE_URL}/api/tasks`;
 
         const response = await fetch(url);
         const data = await response.json();
@@ -65,7 +65,7 @@ export const TaskProvider = ({ children }) => {
   // permanently deleting the task
   const permanentDelete = async(taskId)=>{
     try {
-      await fetch(`/api/tasks/${taskId}`,{
+      await fetch(`${BASE_URL}/api/tasks/${taskId}`,{
         method: 'DELETE',
       });
       fetchTasks();
