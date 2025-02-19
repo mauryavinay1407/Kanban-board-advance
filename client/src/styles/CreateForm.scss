@@ -1,0 +1,228 @@
+.container-popup {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  backdrop-filter: blur(5px);
+  background-color: rgba(0, 0, 0, 0.3);
+  z-index: 999;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding-top: 5vh;
+}
+
+.popup-box {
+  width: 90%;
+  max-width: 650px;
+  background: #fff;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  border-radius: 12px;
+  overflow: hidden;
+  z-index: 1000;
+  border: 1px solid #ccc;
+  
+  @media (max-width: 480px) {
+    width: 95%;
+    margin: 10px;
+  }
+}
+
+.create-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 25px;
+  
+  @media (max-width: 480px) {
+    padding: 15px;
+    gap: 15px;
+  }
+}
+
+.create-form input[type="text"] {
+  padding: 12px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font-size: 16px;
+  outline: none;
+  transition: border-color 0.3s;
+  &:focus {
+    border-color: #007bff;
+  }
+  
+  @media (max-width: 480px) {
+    padding: 10px;
+    font-size: 14px;
+  }
+}
+
+.create-form input[type="radio"] {
+  cursor: pointer;
+}
+
+.status-box {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 15px;
+  padding: 10px 0;
+  
+  @media (max-width: 480px) {
+    gap: 10px;
+  }
+  
+  label {
+    font-size: 16px;
+    color: #333;
+    
+    @media (max-width: 480px) {
+      font-size: 14px;
+    }
+  }
+}
+
+.create-form button {
+  padding: 12px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  
+  &:hover {
+    background-color: #0056b3;
+  }
+  
+  @media (max-width: 480px) {
+    padding: 10px;
+    font-size: 14px;
+  }
+}
+
+h4 {
+  text-align: center;
+  margin: 15px 0;
+  font-size: 24px;
+  color: #333333;
+  
+  @media (max-width: 480px) {
+    font-size: 20px;
+    margin: 10px 0;
+  }
+}
+
+.checked{
+  padding: 7px;
+  border-radius: 15px;
+  cursor: pointer;
+}
+
+.todo-checked{
+  background-color: rgba(39, 39, 196, 0.852);
+}
+
+.inprogress-checked{
+  background-color: rgba(255, 166, 0, 0.868);
+}
+
+.done-checked{
+  background-color: rgba(0, 128, 0, 0.856);
+}
+
+.undo-box {
+  position: fixed;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #180d0d;
+  color: white;
+  padding: 12px 20px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 16px;
+  width: fit-content;
+  min-width: 260px;
+  max-width: 90%;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+.undo-box p {
+  margin: 0;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 16px;
+}
+
+.undo-timer {
+  display: inline-block;
+  background: red;
+  color: white;
+  width: 24px;
+  height: 24px;
+  text-align: center;
+  line-height: 24px;
+  border-radius: 50%;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.undo-box div {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background-color: rgb(184, 154, 154);
+  border-radius: 7px;
+  padding: 6px 10px;
+  cursor: pointer;
+  transition: background 0.3s ease-in-out;
+}
+
+.undo-box div:hover {
+  background-color: rgb(160, 130, 130);
+}
+
+.undo-box button {
+  background: transparent;
+  color: cyan;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+@media (max-width: 480px) {
+  .undo-box {
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    font-size: 14px;
+    padding: 10px 15px;
+  }
+
+  .undo-box p {
+    font-size: 14px;
+  }
+
+  .undo-box div {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .undo-box button {
+    font-size: 14px;
+  }
+
+  .undo-timer {
+    width: 22px;
+    height: 22px;
+    line-height: 22px;
+    font-size: 12px;
+  }
+}

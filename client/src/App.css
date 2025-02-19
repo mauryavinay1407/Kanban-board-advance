@@ -1,0 +1,49 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Roboto",sans-serif;
+}
+body{
+  background-color: rgb(106, 140, 169);
+}
+
+body.dark {
+  background-color: #1e1e1e;
+  color: white;
+}
+.dark-mode-toggle{
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+  
+}
+.dark {
+  .kanban-board {
+    background-color: #252525;
+    border: 1px solid #444;
+  }
+
+  .searchbar-box {
+    background-color: #333;
+    border: 1px solid #555;
+
+    .search-input {
+      color: white;
+
+      &::placeholder {
+        color: #aaa;
+      }
+    }
+  }
+
+  .task {
+    background-color: #444;
+    color: white;
+  }
+}
