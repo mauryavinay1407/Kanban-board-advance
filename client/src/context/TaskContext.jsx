@@ -13,7 +13,9 @@ export const TaskProvider = ({ children }) => {
 
   const fetchTasks = async(filter = "")=>{
       try {
-        const response = await fetch(`/api/tasks?filter=${filter}`);
+        const url = filter.trim() ? `/api/tasks?filter=${encodeURIComponent(filter)}` : `/api/tasks`;
+
+        const response = await fetch(url);
         const data = await response.json();
 
         const organizedTasks = {todo: [],inprogress:[],done:[]};
